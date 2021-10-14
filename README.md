@@ -1,11 +1,9 @@
 # YAMALOG
 
 ## サイト概要
-
-- 登山の写真を投稿するアプリケーション。
-- アカウント作成なしで写真の閲覧が可能。
-- アカウント作成をすることによって、写真の投稿が可能。
-- ユーザー同士であれば、いいね、コメント機能を利用可能。
+登山の写真を投稿するアプリケーションです。
+トップ画面ではユーザー登録なしで写真の閲覧が可能ですが、写真の投稿、いいねやコメント機能を利用するには、
+ユーザー登録が必要です。ユーザー同士であれば、いいね、コメント機能が利用可能となっております。
 
 ### サイトテーマ
 登山の写真を投稿して、登山写真を記録、共有できるアプリケーション。
@@ -20,11 +18,15 @@
 登山をする一般ユーザーまたは、登山に興味がある一般ユーザー
 
 ### 主な利用シーン
-- 登山後に記録を残したい時に写真を投稿できます。
-- 次に登山を計画する時に他のユーザーの投稿を参考にできます。
+- 登山後に記録として写真を残したい時
+- 他のユーザーの登山写真を参考にしたい時
 
 ## 設計書
-<...>
+<https://docs.google.com/spreadsheets/d/1whQ76rv5yaGvb8JmjpnvkKHsOF6ttXYo/edit#gid=549108681>
+<https://docs.google.com/spreadsheets/d/1yO4he0WomN_ZaRBodd4XSTA6jmVxqBo3DXq0nANRWjk/edit#gid=4757890>
+<https://app.diagrams.net/#G1KMC-giGjuc-V3-GaeWpoShX4zmPvm3Ny>
+
+
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1GFFr7pxjyqzy7o_zMqecw5lmBS6Jl9EQEwcrEvExCF4/edit#gid=0>
@@ -36,6 +38,3 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
