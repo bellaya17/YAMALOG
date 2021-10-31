@@ -16,9 +16,9 @@ class UsersController < ApplicationController
 
   def index
     @user = current_user
-    @users = User.all
+    @users = User.where.not(id: current_user.id)
   end
-  
+
   private
 
   def user_params
