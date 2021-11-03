@@ -1,10 +1,10 @@
+
 <div class="container">
-
-  <div class="row mt-5">
-    <h2>ようこそYAMALOGへ</h2>
-  </div>
-
-
+  <h3 class="title mt-3">ようこそYAMALOGへ</h3>
+  <p class="subtitle">登山の写真を投稿するアプリケーションです<br>
+  トップ画面ではユーザー登録なしで写真の閲覧が可能ですが、<br>
+  写真を投稿、投稿詳細の参照、いいねやコメント機能を利用するにはユーザー登録が必要です</p>
+  
   <div class="row">
     <% @post_images.last(3).each do |post_image| %>
 
@@ -34,8 +34,5 @@
       <div class="col text-right">
         <%= link_to "もっとみる",  post_images_path, class:"link-secondary"; %>
       </div>
-
   </div>
-
-
 </div>

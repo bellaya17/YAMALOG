@@ -16,3 +16,25 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+.about-wrapper {
+  position: relative;
+}
+
+.img {
+  background-image: url("top_aidu.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.5;
+}
+
+.about-body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 10px;
+}

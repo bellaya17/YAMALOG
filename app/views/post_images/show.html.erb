@@ -14,66 +14,61 @@
       <h7 class="card-subtitle text-muted"><%= @post_image.created_at.strftime('%Y/%m/%d') %></h7>
       <p class="card-text"><%= @post_image.text %></p>
 
-      <% if @post_image.user == current_user %>
-        <%= link_to edit_post_image_path(@post_image), method: :get do %>
-          <i class="fas fa-edit"></i>
+      <div class="icons">
+        <% if @post_image.favorited_by?(current_user) %>
+      <span>
+        <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
+          <i class="fas fa-heart"></i><%= @post_image.favorites.count %>
         <% end %>
-        <%= link_to post_image_path(@post_image), method: :delete do %>
-          <i class="fas fa-trash-alt"></i>
+      </span>
+      <% else %>
+      <span>
+        <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
+          <i class="fas fa-heart"></i><%= @post_image.favorites.count %>
         <% end %>
+      </span>
       <% end %>
+      <span class="mt-2">&nbsp;<i class="fas fa-comment"></i><%= @post_image.post_comments.count %>件</span>
 
-        <!--いいね機能-->
-      <% if @post_image.favorited_by?(current_user) %>
-        <p>
-          <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
-            ♥<%= @post_image.favorites.count %> いいね
+      <span>
+        <% if @post_image.user == current_user %>
+          <%= link_to edit_post_image_path(@post_image), method: :get do %>
+            &nbsp;<i class="fas fa-edit"></i>
           <% end %>
-        </p>
-        <% else %>
-        <p>
-          <%= link_to post_image_favorites_path(@post_image), method: :post do %>
-            ♡<%= @post_image.favorites.count %> いいね
+          <%= link_to post_image_path(@post_image), method: :delete do %>
+            &nbsp;<i class="fas fa-trash-alt"></i>
           <% end %>
-        </p>
-      <% end %>
-    <!--コメント-->
+        <% end %>
+      </span>
+
+      </div>
+
     <hr>
     <div class="comments card-text">
-      <h5 class="mt-2"><%= @post_image.post_comments.count %>件コメント</h5>
       <% @post_image.post_comments.each do |post_comment| %>
-      <div class="media border mb-3">
-
-
-        <div class="media-body">
-          <div class="row text-left mt-3 mb-3 ml-3">
-            <div class="col-1"><%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size:'50x50', class:"rounded-circle"; %></div>
-            <div class="col-1"><%= post_comment.user.name %></div>
-            <div class="col-2"><%= post_comment.created_at.strftime('%Y/%m/%d') %></div>
-            <div class="col-7"><%= post_comment.comment %></div>
-            <div class="col-1">
-              <% if post_comment.user == current_user %>
-                <%= link_to post_image_post_comment_path(post_comment.post_image, post_comment), class:"col text-right", method: :delete do %>
-                  <i class="fas fa-trash-alt"></i>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-
-
+      <div class="media mb-3">
+        <%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size:'50x50', class:"rounded-circle" %>
+        <div class="media-body ml-3 p-2">
+          <p><%= post_comment.created_at.strftime('%Y/%m/%d') %></p>
+          <p><%= post_comment.comment %>
+          <% if post_comment.user == current_user %>
+            <%= link_to post_image_post_comment_path(post_comment.post_image, post_comment), class:"col text-right", method: :delete do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          <% end %>
+          </p>
         </div>
       </div>
 
       <% end %>
     </div>
-    <hr>
+
     <div class="new-comment card-text">
       <%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
         <div class="form-floating">
-          <label for="floatingTextarea">コメントする</label>
           <%= f.text_area :comment, rows:'5', class:"form-control", placeholder: "コメントをここに" %>
         </div>
-        <%= f.submit "送信する", class:"btn btn-lg btn-info mt-2 float-right"%>
+        <%= f.submit "コメントする", class:"btn btn-lg btn-info mt-2 float-right"%>
       <% end %>
     </div>
 

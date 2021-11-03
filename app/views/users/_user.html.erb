@@ -1,12 +1,36 @@
-<%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
-  <div class="row">
-    <h3><%= user.name %></h3>
+<div class="container text-center mt-3">
+  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
+  <h3><%= user.name %></h3>
+  <div class="my-icons">
+
+    <span>
+      <%= link_to user_path(user) do %>
+      <p>投稿<i class="fas fa-camera"><%= user.post_images.count %></i></p>
+      <% end %>
+    </span>
+
+    <span>
+      <%= link_to user_followings_path(user) do %>
+      <p>フォロー<i class="fas fa-user"><%= user.followings.count %></i></p>
+      <% end %>
+    </span>
+
+    <span>
+      <%= link_to user_followers_path(user) do %>
+      <p>フォロワー<i class="fas fa-user"><%= user.followers.count %></i></p>
+      <% end %>
+    </span>
+
+    <span>
       <% if user.id == current_user.id %>
-      <div class="col mt-1">
         <%= link_to edit_user_path(user) do %>
           <i class="fas fa-cog"></i>
-          <% end %>
         <% end %>
-      </div>
+      <% end %>
+    </span>
 
   </div>
+
+
+
+</div>

@@ -2,6 +2,28 @@
   <div class="row">
     <div class="col-2">
       <%= render 'users/user', user: @user %>
+      
+      <h4>フォロー中</h2>
+      <% @users.followings.each do |user| %>
+        <table>
+          <tr>
+            <td>  <%= user.name %> </td>
+            <td><%= link_to '詳細', user_path(user) %></td>
+          </tr>
+        </table>
+      <% end %>
+      
+      
+      <h4>フォロワー</h4>
+      <% @users.followers.each do |user| %>
+        <table>
+        <tr>
+          <td>  <%= user.name %> </td>
+          <td><%= link_to '詳細', user_path(user) %></td>
+        </tr>
+        
+        </table>
+      <% end %>
     </div>
 
     <div class="col-10">
