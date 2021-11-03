@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   get"about" => "homes#about", as:"about"
 
   devise_for :users
-  resources :users, only: [:show, :edit, :update, :index] do
-    resource :relationships, only: [:create, :destroy]
-    get "followings" => "relationships#followings", as: "followings"
-    get "followers" => "relationships#followers", as: "followers"
-  end
+  post "follow/:id" => "relationships#follow", as: "follow"
+  post "unfollow/:id" => "relationships#unfollow", as: "unfollow"
+  resources :users, only: [:show, :edit, :update, :index]
 
   resources :post_images, only: [:new, :create, :index, :show, :destroy, :edit, :update,] do
     resource :favorites, only: [:create, :destroy]

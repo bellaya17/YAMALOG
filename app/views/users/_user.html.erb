@@ -3,6 +3,7 @@
   <h3><%= user.name %></h3>
   <div class="my-icons">
 
+  <hr>
     <span>
       <%= link_to user_path(user) do %>
       <p>投稿<i class="fas fa-camera"><%= user.post_images.count %></i></p>
@@ -10,21 +11,17 @@
     </span>
 
     <span>
-      <%= link_to user_followings_path(user) do %>
-      <p>フォロー<i class="fas fa-user"><%= user.followings.count %></i></p>
-      <% end %>
+      <p>フォロー<i class="fas fa-user"><%= user.follower.count %></i></p>
     </span>
 
     <span>
-      <%= link_to user_followers_path(user) do %>
-      <p>フォロワー<i class="fas fa-user"><%= user.followers.count %></i></p>
-      <% end %>
+      <p>フォロワー<i class="fas fa-user"><%= user.followed.count %></i></p>
     </span>
 
     <span>
       <% if user.id == current_user.id %>
         <%= link_to edit_user_path(user) do %>
-          <i class="fas fa-cog"></i>
+          <p>編集<i class="fas fa-cog"></i></p>
         <% end %>
       <% end %>
     </span>
