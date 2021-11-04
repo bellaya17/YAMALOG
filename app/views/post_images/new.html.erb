@@ -14,11 +14,11 @@
 
     <%= f.attachment_field :image, class: "w-100 mb-5"%>
     <div class="input-group mb-5">
-      <%= f.text_field :title, class:"form-control", placeholder:"タイトル" %>
+      <%= f.text_field :title, class:"form-control", placeholder:"タイトル(15文字以内)" %>
     </div>
 
     <div class="input-group mb-5">
-      <%= f.text_area :text, class:"form-control", placeholder:"本文を入力" %>
+      <%= f.text_area :text, class:"form-control", placeholder:"本文を入力(50文字以内)" %>
     </div>
 
     <%= f.submit '投稿', class: "btn btn-info btn-lg btn-block" %>
