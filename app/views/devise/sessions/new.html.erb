@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-4 col-sm-10 mx-2 mx-sm-auto text-center">
+      <h2 class="mt-5 mb-5">ログイン</h2>
+      <p class="subtitle">写真を投稿、投稿詳細の参照、<br>
+      いいねやコメント機能を<br>
+      利用するにはログインが必要です</p>
+
+      <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+
+        <div class="input-group mb-5">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+          </div>
+          <%= f.text_field :name, class: "form-control", autofocus: true, placeholder: "アカウント名" %>
+        </div>
+
+        <div class="input-group mb-5">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+          </div>
+          <%= f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "パスワード" %>
+        </div>
+
+        <div class="d-grid gap-2">
+          <%= f.submit "ログイン", class: "btn btn-success btn-lg btn-block"%>
+        <% end %>
+        </div>
+
+        <hr>
+        <p class="subtitle">
+          はじめてのかたはこちらから
+        </p>
+
+        <div class="d-grid gap-2">
+        <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary btn-lg btn-block" %>
+        </div>
+    </div>
+  </div>
+</div>

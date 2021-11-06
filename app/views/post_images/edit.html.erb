@@ -1,0 +1,22 @@
+<div class="container">
+<div class="row no-gutters">
+  <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center">
+    <h2 class="mt-5 mb-5">投稿編集</h2>
+    <%= form_with model:@post_image, local:true do |f| %>
+
+    <%= attachment_image_tag @post_image, :image, class: "w-100 mb-5"%>
+
+    <div class="input-group mb-5">
+      <%= f.text_field :title, class:"form-control", autofocus: true, :placeholder =>"#{@post_image.title}" %>
+    </div>
+
+    <div class="input-group mb-5">
+      <%= f.text_area :text, class:"form-control", :placeholder =>"#{@post_image.text}" %>
+    </div>
+
+    <%= f.submit "変更を保存", class: "btn btn-warning btn-lg btn-block" %>
+    <% end %>
+
+  </div>
+</div>
+</div>
